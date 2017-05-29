@@ -1,0 +1,23 @@
+{
+  "name": "webpack-react-boilertemplate",
+  "version": "1.0.0",
+  "description": "webpack react boilertemplate",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "author": "Nobuyuki Fujioka",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.3",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.18.1",
+    "webpack": "^2.6.1"
+  }
+}
