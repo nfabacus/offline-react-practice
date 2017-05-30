@@ -4,7 +4,10 @@
   "description": "webpack react boilertemplate",
   "main": "index.js",
   "scripts": {
-    "build": "webpack"
+    "//": "rimraf folder name will remove the folder",
+    "clean": "rimraf build",
+    "build": "npm run clean && webpack",
+    "serve": "webpack-dev-server"
   },
   "author": "Nobuyuki Fujioka",
   "license": "ISC",
@@ -15,9 +18,15 @@
     "babel-preset-env": "^1.5.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.3",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "image-webpack-loader": "^3.3.1",
     "node-sass": "^4.5.3",
+    "rimraf": "^2.6.1",
     "sass-loader": "^6.0.5",
     "style-loader": "^0.18.1",
-    "webpack": "^2.6.1"
+    "url-loader": "^0.5.8",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
   }
 }

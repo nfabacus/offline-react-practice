@@ -1,4 +1,5 @@
-var path = require('path');
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
   entry: {
@@ -6,7 +7,8 @@ const config = {
   },
   output: {
     path: path.resolve(__dirname, 'build'),  //must be absolute path for output - usually call it 'build' or 'dist'
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: 'build/' //url-loader can use this path to find big image files that are compiled out of bundle.js to build folder.
   },
   module: {
     rules: [
@@ -16,17 +18,33 @@ const config = {
         exclude: /node_modules/
       },
       {
-        use: [
-            'style-loader', //Takes CSS imports and adds them to the HTML document
-            'css-loader', //knows how to deal with css
-            'autoprefixer-loader?browsers=last 3 versions',
-            'sass-loader?outputStyle=expanded' //this one is applied first.
-        ],
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: [
+             'css-loader', //knows how to deal with css
+             'autoprefixer-loader?browsers=last 3 versions',
+             'sass-loader?outputStyle=expanded' //this one is applied first.
+          ]
+        }),
         test: /\.scss$/,
         exclude: /node_modules/
+      },
+      {
+        use: [
+          // 'url-loader?limit=40000',  //Then, use url-loader. This one liner is the same as below. Images over 40KB file size will be built in build folder.  Images  40KB or less will be included in bundle.js file.
+          {
+            loader: 'url-loader',
+            options: { limit: 40000 }
+          },
+          'image-webpack-loader' // use image-webpack-loader first.
+        ],
+        test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)$/
       }
     ]
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin("styles.css"), //after css-loader, styles are caught and combined into this 'style.css' file.
+  ]
 };
 
 module.exports = config;
