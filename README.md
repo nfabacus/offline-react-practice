@@ -108,8 +108,15 @@
   2) Add to scripts in package.json:
      "serve": "webpack-dev-server"
 
-### Installing Bootstrap 4 SASS
-
 ### Installing React
+  npm install --save react react-dom axios lodash prop-types react-redux react-router-dom redux redux-form react-render-html re dux-thunk
+
+ 1) Create react app container in index.html
+    <div class="app"></div>
+ 2) Create actions, components, and reducers folders under src folder.
+
 
 ### Installing React Router
+
+### Installing Bootstrap 4 SASS
+  npm install --save jquery tether bootstrap@4.0.0-alpha.6
