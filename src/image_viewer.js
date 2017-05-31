@@ -1,7 +1,7 @@
 import big from '../assets/big.jpg';
 import small from '../assets/small.jpg';
 
-import '../styles/image_viewer.scss';
+import '../scss/image_viewer.scss';
 
 const image = document.createElement('img');
 image.src = small;
