@@ -107,16 +107,46 @@
     npm install --save-dev webpack-dev-server
   2) Add to scripts in package.json:
      "serve": "webpack-dev-server"
+  3) Add below to webpack.config.js to prevent errors with single page app when refreshing url in browser (when using webpack dev server)
+      devServer: {
+        historyApiFallback: true
+      }
 
 ### Installing React
-  npm install --save react react-dom axios lodash prop-types react-redux react-router-dom redux redux-form react-render-html re dux-thunk
+  npm install --save react react-dom axios lodash prop-types react-redux redux redux-form react-render-html redux-thunk
 
  1) Create react app container in index.html
     <div class="app"></div>
  2) Create actions, components, and reducers folders under src folder.
 
+### Installing BrowserRouter
+  1) npm install --save react-router-dom react-router
+  2) Add BrowserRouter as below:
+```
+    const App = ()=> (
+      <div>
+        <HeaderNav />
+        <Main />
+      </div>
+    )
 
-### Installing React Router
+    const Main =()=>(
+      <div>
+        <Switch>
+          <Route exact path="/" component={ Home } />
+          <Route path="/about" component={ About } />
+          <Route path="/contact" component={ Contact } />
+        </Switch>
+      </div>
+    )
+
+    ReactDOM.render((
+      <BrowserRouter>
+          <App />
+      </BrowserRouter>
+    ), document.querySelector('.app'));
+```
 
 ### Installing Bootstrap 4 SASS
-  npm install --save jquery tether bootstrap@4.0.0-alpha.6
+  1) Install bootstrap 4, jquery, and tether via npm
+    npm install --save jquery tether bootstrap@4.0.0-alpha.6

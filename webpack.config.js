@@ -44,7 +44,10 @@ const config = {
   },
   plugins: [
     new ExtractTextPlugin("styles.css"), //after css-loader, styles are caught and combined into this 'style.css' file.
-  ]
+  ],
+  devServer: {
+    historyApiFallback: true
+  }
 };
 
 module.exports = config;
