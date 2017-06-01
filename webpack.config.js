@@ -1,6 +1,6 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-var webpack = require('webpack');  //need to import here to use for webpack.ProvidePlugin at the bottom of this file.
+// const webpack = require('webpack');  //need to import here to use for webpack.ProvidePlugin at the bottom of this file.
 
 const config = {
   entry: {
