@@ -1,5 +1,6 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var webpack = require('webpack');  //need to import here to use for webpack.ProvidePlugin at the bottom of this file.
 
 const config = {
   entry: {
@@ -44,6 +45,13 @@ const config = {
   },
   plugins: [
     new ExtractTextPlugin("styles.css"), //after css-loader, styles are caught and combined into this 'style.css' file.
+    // new webpack.ProvidePlugin({  //ProvidePlugin will automatically load modules instead of having to import or require them everywhere.
+    //   'jQuery': 'jquery',
+    //   'window.jQuery': 'jquery',
+    //   'window.$': 'jquery',
+    //   Tether: "tether",
+    //   "window.Tether": "tether"
+    // }),
   ],
   devServer: {
     historyApiFallback: true

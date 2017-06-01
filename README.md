@@ -121,7 +121,7 @@
 
 ### Installing BrowserRouter
   1) npm install --save react-router-dom react-router
-  2) Add BrowserRouter as below:
+  2) Add BrowserRouter as below, for example:
 ```
     const App = ()=> (
       <div>
@@ -148,5 +148,27 @@
 ```
 
 ### Installing Bootstrap 4 SASS
-  1) Install bootstrap 4, jquery, and tether via npm
+  1) Install bootstrap 4, jquery, and tether via npm  
     npm install --save jquery tether bootstrap@4.0.0-alpha.6
+
+  2) Structure your scss files.  
+      For example,  
+         scss folder:  
+            custom-theme (your theme folder):  
+                    _custom.scss (custom variables for bootstrap)  
+                   _master-theme.scss (add here your own styles and import any other style files you created and separated)  
+                   _your other scss style files to be imported to the master-theme.scss  
+        master.scss file, which should include below:  
+        ```
+              // Import any of your custom variables for bootstrap here first.  
+              @import "custom-theme/custom";  
+              // Then, import bootstrap scss  
+              @import "~bootstrap/scss/bootstrap";  
+              // Finally import any custom styles.  
+              @import "custom-theme/master-theme";  
+        ```
+   3) Make sure to import "./scss/master.scss" in index.js in src folder.
+   4) At this point, bootstrap's javascripts are not loaded, so do not work well with react.  So, we will install reactstrap to support bootstrap javascript functionality.
+       npm install --save reactstrap react-addons-transition-group react-addons-css-transition-group
+  5) See how to create react bootstrap 4 components using reactstrap below:
+      http://reactstrap.github.io/components/alerts/

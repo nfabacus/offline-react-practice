@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 // import reducers from './reducers';
-import HeaderNav from './components/header-nav';
+import HeaderNav from './components/shared/header-nav';
 import Home from './components/home';
 import About from './components/about';
 import Contact from './components/contact';
@@ -21,7 +21,7 @@ const App = ()=> (
 )
 
 const Main =()=>(
-  <div>
+  <div className="mt-5 pt-5">
     <Switch>
       <Route exact path="/" component={ Home } />
       <Route path="/about" component={ About } />
