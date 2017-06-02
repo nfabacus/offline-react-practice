@@ -148,9 +148,9 @@
 ```
 
 ### Installing Bootstrap 4 SASS
-  1) Install bootstrap 4, jquery, and tether via npm  
-    npm install --save jquery tether bootstrap@4.0.0-alpha.6
-
+  1) Install bootstrap 4<s>, jquery, and tether</s> via npm  
+    npm install --save <s>jquery tether</s> bootstrap@4.0.0-alpha.6   
+    Later we will install reactstrap and its components which seem to work without jquery and tether.  So, we will not install jquery and tether here.   
   2) Structure your scss files.  
       For example,  
          scss folder:  
@@ -168,7 +168,7 @@
               @import "custom-theme/master-theme";  
         ```
    3) Make sure to import "./scss/master.scss" in index.js in src folder.
-   4) At this point, bootstrap's javascripts are not loaded, so do not work well with react.  So, we will install reactstrap to support bootstrap javascript functionality.
+   4) At this point, bootstrap's javascripts are not loaded, and do not work well with react.  So, we will install reactstrap to support bootstrap javascript functionality.
        npm install --save reactstrap react-addons-transition-group react-addons-css-transition-group
   5) See how to create react bootstrap 4 components using reactstrap below:
       http://reactstrap.github.io/components/alerts/
