@@ -1,17 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { Provider } from 'react-redux';
-// import { createStore, applyMiddleware } from 'redux';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-// import reducers from './reducers';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import reducers from './reducers';
+
+import reduxThunk from 'redux-thunk';
+
 import HeaderNav from './components/shared/header-nav';
 import Home from './components/home';
 import About from './components/about';
 import Contact from './components/contact';
 
-// const createStoreWithMiddleware = applyMiddleware()(createStore);
+const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 
 const App = ()=> (
   <div>
@@ -31,7 +34,9 @@ const Main =()=>(
 )
 
 ReactDOM.render((
-  <BrowserRouter>
-      <App />
-  </BrowserRouter>
+  <Provider store={createStoreWithMiddleware(reducers)}>
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
+</Provider>
 ), document.querySelector('.app'));

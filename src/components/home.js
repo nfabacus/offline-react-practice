@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import SmallImg from '../assets/small.jpg';
 
 class Home extends Component {
   constructor(props) {
@@ -20,6 +21,9 @@ class Home extends Component {
     return (
       <div className="container">
         <h1>Home page</h1>
+        Image Tag in react component:
+        <img src={SmallImg}/>
+        <div className="bigImage">Image in style</div>
 
         <Button color="danger" onClick={this.toggle}>Click me for modal</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>

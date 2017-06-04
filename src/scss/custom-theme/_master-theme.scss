@@ -3,3 +3,9 @@
 
 // You can also create styles below.
 // e.g. h3 { color: $body-color }
+
+.bigImage {
+  background-image:url('../assets/big.jpg');  //IMPORTANT!! image url is relative from master.scss which imports _master-theme.
+  height: 200px;
+  width: 200px;
+}

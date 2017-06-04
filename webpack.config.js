@@ -9,7 +9,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'build'),  //must be absolute path for output - usually call it 'build' or 'dist'
     filename: 'bundle.js',
-    publicPath: 'build/' //url-loader can use this path to find big image files that are compiled out of bundle.js to build folder.
+    publicPath: '/build/' //url-loader can use this path to find big image files that are compiled out of bundle.js to build folder. make sure to put '/' ('../' does not work as webpac-dev-server does not create bundle.js and style.css in build folder) before and after the folder name 'build', otherwise, image link will be like 'build0123223223ds2.jpg', so the link tag in index.html does not work. 
   },
   module: {
     rules: [
@@ -37,7 +37,7 @@ const config = {
             loader: 'url-loader',
             options: { limit: 40000 }
           },
-          'image-webpack-loader' // use image-webpack-loader first.
+          'image-webpack-loader' // use image-webpack-loader first. This will compress the images.
         ],
         test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)$/
       }
