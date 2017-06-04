@@ -1,3 +1,5 @@
+# Assemblying a web app boilerplate from scratch using webpack, react, redux, and bootstrap 4 sass.
+
 ### Setup webpack
 1. Install webpack as npm dev pendency.
     npm install webpack --save-dev
@@ -105,7 +107,7 @@
     a) image tag in your react component
       Step1: import or require image.   
        e.g.  
-       import SmallImg from '../assets/small.jpg';
+       import SmallImg from '../assets/small.jpg';   
       Step2:
        <img src={SmallImg}/>   
        or   
