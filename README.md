@@ -128,6 +128,19 @@
 
       This is great for your background image.   
 
+### Using google fonts
+  1) import webfontloader via npm   
+    We can add below to index.js in the root.  
+    ```
+    import WebFont from 'webfontloader';
+    ```   
+  2) Then, just change the custom variable(s) for bootstrap fonts.
+   You can do this in _custom.scss in custom-theme folder in scss folder. e.g.-   
+  ```
+  $font-family-base: Vibur !default;
+  ```   
+  For more info, visit https://www.npmjs.com/package/webfontloader   
+
 ### Installing webpack-dev-server
   1) install it via npm
     npm install --save-dev webpack-dev-server    

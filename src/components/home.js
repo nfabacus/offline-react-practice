@@ -21,7 +21,7 @@ class Home extends Component {
     return (
       <div className="container">
         <h1>Home page</h1>
-        Image Tag in react component:
+        <b>Image Tag</b> in react component:
         <img src={SmallImg}/>
         <div className="bigImage">Image in style</div>
 
