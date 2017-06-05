@@ -123,8 +123,10 @@
       }   
       ```   
       Step 2: Just add your css class in your react component.   
-      e.g.   
-      <div className="bigImage">Image in style</div>   
+      e.g.  
+      ```
+      <div className="bigImage">Image in style</div>
+      ```    
 
       This is great for your background image.   
 
