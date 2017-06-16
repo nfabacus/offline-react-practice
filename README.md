@@ -258,4 +258,16 @@
     ```
     const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
     ```
+
+### Create action creator
+  1) Create index.js under actions folder in src.   
+  2) Import axios from 'axios';   
+  3) Create type.js to place all the action types in the future.   
+  4) Import action type(s) into index.js under actions. - i.g. FETCH_PAGES for now.   
+  5) Create a function e.g. fetchPosts() {... }   
+    Check index.js under actions.   
+     You can make a request and dispatch it as a payload in the dispatch.   
+  
+
+
 ### Installing redux-form
