@@ -18,6 +18,8 @@ export function fetchPosts() {
   // With redux-thunk, you will do like below.
   return function(dispatch) {
     request.then(({data}) => { //Once request is resolved, you can send the data in payload, along with type, in dispatch.
+      // You can run some logic here.  Action will wait until dispatch is called.
+
       dispatch({ type: FETCH_PAGES, payload: data });
     });
   };
