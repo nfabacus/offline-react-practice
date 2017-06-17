@@ -266,8 +266,11 @@
   4) Import action type(s) into index.js under actions. - i.g. FETCH_PAGES for now.   
   5) Create a function e.g. fetchPosts() {... }   
     Check index.js under actions.   
-     You can make a request and dispatch it as a payload in the dispatch.   
-  
+     With redux-thunk, You can make a request and dispatch it as a payload in the dispatch.   
+
+### Work On reducers
+  1) Link to the rootReducer the pageReducer you are going to create, in index.js under the reducer folder.
+  2) create reducer_pages.js for pageReducer.
 
 
 ### Installing redux-form

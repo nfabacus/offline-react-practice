@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-import {
-  FETCH_PAGES
-} from './types';
+import { FETCH_PAGES } from './types';
 
 const ROOT_URL = 'http://localhost:3090';
 
