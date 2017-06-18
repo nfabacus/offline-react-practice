@@ -13,6 +13,7 @@ import HeaderNav from './components/shared/header-nav';
 import Home from './components/home';
 import About from './components/about';
 import Contact from './components/contact';
+import PagesIndex from './components/pages/pages_index';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 
@@ -29,6 +30,7 @@ const Main =()=>(
       <Route exact path="/" component={ Home } />
       <Route path="/about" component={ About } />
       <Route path="/contact" component={ Contact } />
+      <Route path="/pages" component={ PagesIndex } />
     </Switch>
   </div>
 )
