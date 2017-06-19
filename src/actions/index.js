@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_PAGES } from './types';
+import { FETCH_PAGES, FETCH_PAGE } from './types';
 
 const ROOT_URL = 'http://localhost:3090';
 
@@ -14,13 +14,29 @@ export function fetchPages() {
   // With redux-thunk, you will do like below.
   return function(dispatch) {
     const request = axios.get(`${ROOT_URL}/pages`);
-    request.then(({data}) => { //Once request is resolved, you can send the data in payload, along with type, in dispatch.
-      // You can run some logic here.  Action will wait until dispatch is called.
+    request.then(({data}) => { //Once request is resolved, you can pick off the data using { data } out of response.
+      // As Below, you can send the data in payload, along with type, in dispatch.
+      // Action will wait until dispatch is called.
       console.log("data in array: ", data);
       dispatch({ type: FETCH_PAGES, payload: data });
     }, error=>{
       console.log(error);
     });
   };
+}
+
+export function fetchPage(url) {
+  return function(dispatch) {
+    const request = axios.get(`${ROOT_URL}/pages/${url}`);
+    request.then(({data}) => {
+      dispatch({
+        type: FETCH_PAGE,
+        payload: data
+      })
+    }, error=>{
+      console.log(error);
+    });
+  }
+
 
 }

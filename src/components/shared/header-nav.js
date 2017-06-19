@@ -35,7 +35,7 @@ class HeaderNav extends Component {
                 <Link className="nav-link" to="/contact">Contact</Link>
               </NavItem>
               <NavItem>
-                <Link className="nav-link" to="/pages">Pages</Link>
+                <Link className="nav-link" to="/pages">Admin</Link>
               </NavItem>
             </Nav>
           </Collapse>

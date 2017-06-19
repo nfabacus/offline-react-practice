@@ -6,11 +6,12 @@
 2. Create webpack.config.js.  
     Specify entry and output
 3. Install babel compiler
-    npm install --save-dev babel-loader babel-core babel-preset-env
+    npm install --save-dev babel-loader babel-core babel-preset-env babel-preset-stage-1
 
     babel-loader: helps babel to work together with webpack
     babel-core: compiler
     babel-preset-env: helps babel to translate es versions so that babel core can understand.
+    babel-preset-stage-1: required to use ...state syntax for redux.
 
 4. Install babel-preset-react for react
     npm install --save-dev babel-preset-react
@@ -31,9 +32,9 @@
 
 6. Create .babelrc file  
     {
-      "presets": ["babel-preset-env", "react"]
+      "presets": ["babel-preset-env", "react", "stage-1"]
     }
-    This will tell babel which presets to apply.
+    This will tell babel which presets to apply.  These presets are required for the latest syntax to work.
 
 ### Process styles with webpack
 1. Tell webpack to use css related loaders
@@ -270,7 +271,7 @@
 
 ### Work On reducers
   1) Link to the rootReducer the pageReducer you are going to create, in index.js under the reducer folder.
-  2) create reducer_pages.js for pageReducer.
+  2) create reducer_pages.js for page
 
 
 ### Installing redux-form

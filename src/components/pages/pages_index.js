@@ -1,8 +1,8 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
 import { fetchPages } from '../../actions';
+import { Link } from 'react-router-dom';
 
 class PagesIndex extends Component {
   componentDidMount() {
@@ -15,7 +15,9 @@ class PagesIndex extends Component {
       console.log("page: ", page);
       return (
         <li className="list-group-item" key={page._id}>
-          Page URL: {page.url}, Title: {page.title}
+          <Link to={`/${page.url}`}>
+            Page URL: {page.url}, Title: {page.title}
+          </Link>
         </li>
       );
     });
@@ -34,6 +36,7 @@ class PagesIndex extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log("State:", state);
   return { pages: state.pages }
 }
 export default connect(mapStateToProps, { fetchPages })(PagesIndex);
