@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { FETCH_PAGES, FETCH_PAGE } from '../actions/types';
 
-export default function(state={}, action) { //Receive previous state.  Otherwise, set the default state to an empty object.  Also, receive an anction.
+export default function(state={}, action) { //Receive previous state.  Otherwise, set the default state to an empty object.  Also, receive an action.
   switch (action.type) {
     case FETCH_PAGES:
       console.log("Action.type is FETCH_PAGES!");

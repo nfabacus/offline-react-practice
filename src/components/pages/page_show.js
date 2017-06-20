@@ -32,7 +32,7 @@ class PageShow extends Component {
     // }
 
     if(!page) {
-      return <div>Loading...</div>;
+      return <div className="container">Loading...</div>;
     }
     console.log("page.subcontents in PageShow: ", page.subcontents);
 

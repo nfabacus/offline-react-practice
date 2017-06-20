@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchNavLinks } from '../../actions';
+import _ from 'lodash';
 import { Link } from 'react-router-dom';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 
 class HeaderNav extends Component {
+  componentDidMount() {
+    this.props.fetchNavLinks();
+  }
   constructor(props) {
     super(props);
 
@@ -11,10 +17,24 @@ class HeaderNav extends Component {
       isOpen: false
     };
   }
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
     });
+  }
+  // console.log("State in HeaderNav: ", state);
+  renderNavItem() {
+    console.log("this.props.navlinks in Nav: ", this.props.navlinks);
+    return _.map(this.props.navlinks, navlink=>{
+      console.log("navlink in Nav: ", navlink);
+      return (
+        <NavItem key={navlink._id}>
+          <Link className="nav-link" to={`/${navlink.url}`}>{navlink.title}</Link>
+        </NavItem>
+      );
+    })
+
   }
 
   render() {
@@ -26,9 +46,6 @@ class HeaderNav extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <Link className="nav-link" to="/">Home</Link>
-              </NavItem>
-              <NavItem>
                 <Link className="nav-link" to="/about">About</Link>
               </NavItem>
               <NavItem>
@@ -37,35 +54,18 @@ class HeaderNav extends Component {
               <NavItem>
                 <Link className="nav-link" to="/pages">Admin</Link>
               </NavItem>
+              { this.renderNavItem() }
             </Nav>
           </Collapse>
         </Navbar>
       </div>
-      // <nav className="navbar navbar-toggleable-md navbar-light fixed-top bg-faded">
-      //   <div className="navbar-header">
-      //     <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      //          <span className="navbar-toggler-icon"></span>
-      //     </button>
-      //     <Link className="navbar-brand" to="/">Brand</Link>
-      //   </div>
-      //
-      //   <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      //     <ul className="navbar-nav mr-auto">
-      //       <li className="nav-item" key={1}>
-      //         <Link className="nav-link" to="/">Home</Link>
-      //       </li>
-      //       <li className="nav-item" key={2}>
-      //         <Link className="nav-link" to="/about">About</Link>
-      //       </li>
-      //       <li className="nav-item" key={3}>
-      //         <Link className="nav-link" to="/contact">Contact</Link>
-      //       </li>
-      //     </ul>
-      //   </div>
-      // </nav>
     );
   }
-
 };
 
-export default HeaderNav;
+function mapStateToProps(state) {
+  console.log("State in nav:", state);
+  return { navlinks: state.navlinks }
+}
+
+export default connect(mapStateToProps, { fetchNavLinks })(HeaderNav);

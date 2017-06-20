@@ -1,7 +1,7 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPages } from '../../actions';
+import _ from 'lodash';
 import { Link } from 'react-router-dom';
 
 class PagesIndex extends Component {

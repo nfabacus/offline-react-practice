@@ -36,6 +36,10 @@
     }
     This will tell babel which presets to apply.  These presets are required for the latest syntax to work.
 
+### Debugging Tool
+   Make sure to add source-map in order to locate a source file location for debugging errors as below.  Otherwise, it will be difficult to find where the error lies in bundle.js.
+   devtool: 'source-map'
+
 ### Process styles with webpack
 1. Tell webpack to use css related loaders
     {

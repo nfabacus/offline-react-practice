@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_PAGES, FETCH_PAGE } from './types';
+import { FETCH_PAGES, FETCH_PAGE, FETCH_NAVLINKS } from './types';
 
 const ROOT_URL = 'http://localhost:3090';
 
@@ -23,6 +23,17 @@ export function fetchPages() {
       console.log(error);
     });
   };
+}
+
+export function fetchNavLinks() {
+  return function(dispatch) {
+    const request = axios.get(`${ROOT_URL}/navlinks`);
+    request.then(({data}) => {
+      dispatch({ type: FETCH_NAVLINKS, payload: data });
+    }, error=>{
+      console.log(error);
+    });
+  }
 }
 
 export function fetchPage(url) {
