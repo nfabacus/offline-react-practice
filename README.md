@@ -4,7 +4,8 @@
 1. Install webpack as npm dev pendency.
     npm install webpack --save-dev
 2. Create webpack.config.js.  
-    Specify entry and output
+    Specify entry and output   
+    !important!: see webpack.config.js   
 3. Install babel compiler
     npm install --save-dev babel-loader babel-core babel-preset-env babel-preset-stage-1
 
@@ -35,6 +36,11 @@
       "presets": ["babel-preset-env", "react", "stage-1"]
     }
     This will tell babel which presets to apply.  These presets are required for the latest syntax to work.
+7. Add script tag for bundle.js (compiled source code) to index.html in root.   
+  ```
+  <script src="/build/bundle.js"></script>
+  ```   
+  !IMPORTANT! make sure to have '/build/bundle.js' (absolute path) NOT 'build/bundle.js' (relative path).  Otherwise, it will throw an error when you use react router (browserRouter) with nested routes (e.g. '/pages/new').   
 
 ### Debugging Tool
    Make sure to add source-map in order to locate a source file location for debugging errors as below.  Otherwise, it will be difficult to find where the error lies in bundle.js.
@@ -81,8 +87,11 @@
 
       When you run the webpack build process next time, it will automatically create style.css file in your output folder.
 
-  5) Link style.css file in the head of index.html.
-      <link rel="stylesheet" href="build/styles.css" />
+  5) Link style.css file in the head of index.html.   
+      ```
+      <link rel="stylesheet" href="/build/styles.css" />
+      ```   
+      !IMPORTANT! make sure to have '/build/styles.css' (absolute path) NOT 'build/styles.css' (relative path).  Otherwise, it will throw an error when you use react router (browserRouter) with nested routes (e.g. '/pages/new').   
 
 ### Process images with webpack
   1) Install image-webpack-loader, file loader and url-loader via npm
