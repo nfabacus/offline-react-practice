@@ -191,7 +191,7 @@
   ```   
   Make sure to install rimraf as well.   
 
-### Installing React
+### Installing React (as well as redux, redux form,etc.)
   npm install --save react react-dom axios lodash prop-types react-redux redux redux-form react-render-html redux-thunk
 
  1) Create react app container in index.html
@@ -311,7 +311,37 @@
   2) create reducer_pages.js for page
 
 
-### Installing redux-form
+### Using redux-form   
+  1) Make sure redux-form is already installed via npm.   
+  2) Add formReducer in index.js in the reducers folder.   
+    ```
+    import { reducer as formReducer } from 'redux-form';       
+    ```   
+    Then, add it to rootReducer.   
+    ```
+    const rootReducer = combineReducers({
+      navlinks: NavLinksReducer,
+      pages: PagesReducer,
+      form: formReducer
+    });   
+    ```   
+  3) Build PageNew Component   
+    1. Wire up react component with redux using connect   
+      ```
+      connect(null,{})(PageNew)   
+      ```   
+    2. Wire it up with reduxForm.  
+      ```
+      export default reduxForm({
+        form: 'PageNewForm'  //giving a name to the form here.   
+      })(
+        connect(null,{})(PageNew)
+      );
+      ```   
+    3. Add Form and Field components in it.   
+      Please see the detailed example in page_new.js.   
+    4. Add Form Validation.   
+      Create validate function. Pass values in it, and add validation logics in the validate function.  See the example in page_new.js   
 
 
 ###

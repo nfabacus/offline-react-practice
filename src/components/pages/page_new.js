@@ -1,10 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Field, reduxForm } from 'redux-form';
 
 class PageNew extends Component {
 
+  renderField(field) {
+    // const { meta } = field;  //this will allow us to use just 'meta' instead of 'field.meta'...
+    const { meta: { touched, error } } = field; // furthermore, we can even pull off touched and error from meta like this. now you can just use touched and error.
+    const className = `form-group ${touched && error ? 'has-danger' : ''}`;
+
+    return (
+      <div className={className}>
+        <label>{field.label}</label>
+        <input className='form-control' { ...field.input } />
+        <div className="text-help">
+          { touched? error: '' }
+        </div>
+      </div>
+    );
+  }
+
+  onSubmit(values) {
+    console.log('submitted values: ', values);
+  }
+
   render(){
+    const { handleSubmit } = this.props; //handleSubmit is provided by redux form. Pulling it off from this.props.
     return (
       <div className="container">
         <div className="text-right">
@@ -13,9 +35,37 @@ class PageNew extends Component {
           </Link>
         </div>
         <h1>New Page</h1>
+
+        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+          <Field label="url" name="url" component={this.renderField} />
+          <Field label="title" name="title" component={this.renderField} />
+          <Field label="navLink" name="navLink" component={this.renderField} />
+          <Field label="content" name="content" component={this.renderField} />
+          <Field label="published" name="published" component={this.renderField} />
+
+          <button type="submit" className="btn btn-primary">Submit</button>
+          <Link className="btn btn-danger ml-3" to="/pages">Cancel</Link>
+        </form>
+
       </div>
     );
   }
 }
 
-export default connect(null,{})(PageNew);
+function validate(values) {
+  // values will be { title: 'whatever you input in the form', categories: 'whatever you input', content: 'whatever you input'}
+  const errors = {};
+
+  // Validate the inputs from 'values'
+
+
+
+  return errors;
+}
+
+export default reduxForm({
+  validate,  //This is the same as--> validate: validate,
+  form: 'PageNewForm'  //giving a name to the form here.
+})(
+  connect(null,{})(PageNew)
+);
