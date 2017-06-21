@@ -26,6 +26,12 @@ class PagesIndex extends Component {
   render() {
     return (
       <div className="container">
+        <div className="text-right">
+          <Link className="btn btn-primary" to="/pages/new">
+            Add a page
+          </Link>
+        </div>
+
         <h1>Pages</h1>
         <ul className="list-group">
           {this.renderPages()}
