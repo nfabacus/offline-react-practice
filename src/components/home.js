@@ -20,10 +20,12 @@ class Home extends Component {
   render () {
     return (
       <div className="container">
-        <h1>Home page</h1>
-        <b>Image Tag</b> in react component:
         <img src={SmallImg}/>
         <div className="bigImage">Image in style</div>
+        
+        <h1>Home page</h1>
+        <b>Image Tag</b> in react component:
+
 
         <Button color="danger" onClick={this.toggle}>Click me for modal</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>

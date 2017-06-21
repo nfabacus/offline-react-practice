@@ -11,8 +11,13 @@ class PageShow extends Component {
     this.props.fetchPage(url);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.match.params.url !== this.props.match.params.url) {
+      this.props.fetchPage(nextProps.match.params.url);
+    }
+  }
+
   renderSubcontents(subcontents) {
-    console.log("subcontents: ", subcontents);
     return _.map(subcontents, subcontent => {
       return (
         <li key={subcontent._id}>

@@ -7,7 +7,8 @@
     "//": "rimraf folder name will remove the folder",
     "clean": "rimraf build",
     "build": "npm run clean && webpack",
-    "serve": "webpack-dev-server"
+    "serve:dev": "webpack-dev-server --progress --colors",
+    "serve:pro": "superstatic --host 0.0.0.0 --port 8080 --config superstatic.json"
   },
   "author": "Nobuyuki Fujioka",
   "license": "ISC",
@@ -47,6 +48,7 @@
     "redux": "^3.6.0",
     "redux-form": "^6.7.0",
     "redux-thunk": "^2.2.0",
+    "superstatic": "^4.1.0",
     "webfontloader": "^1.6.28"
   }
 }
