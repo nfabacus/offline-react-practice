@@ -6,6 +6,11 @@
 
 .bigImage {
   background-image:url('../assets/big.jpg');  //IMPORTANT!! image url is relative from master.scss which imports _master-theme.
-  height: 200px;
-  width: 200px;
+  background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	margin: 0%;
+	color:white;
+  height: 500px;
 }

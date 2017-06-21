@@ -152,11 +152,35 @@
   1) install it via npm
     npm install --save-dev webpack-dev-server    
   2) Add to scripts in package.json:
-     "serve": "webpack-dev-server"   
+     "serve:dev": "webpack-dev-server --progress --colors"   
+     '--progress' will show the progress of webpack building in percentage.   
   3) Add below to webpack.config.js to prevent errors with single page app when refreshing url in browser (when using webpack dev server)
       devServer: {
         historyApiFallback: true
       }
+
+### Installing a temporary Production Server to test Build code
+  1) Install superstatic server via npm
+    npm install --save superstatic   
+  2) Configure the server.     
+    - Create a file called superstatic.json   
+    - Tell it to redirect any routes to index.html. VERY IMPORTANT!   
+    ```
+    {
+      "rewrites": [
+        {"source":"/**","destination":"/index.html"}
+      ]
+    }
+
+    ```   
+  3) In package.json, add the below script:   
+  ```
+  "clean": "rimraf build",
+  "build": "npm run clean && webpack",
+  "serve:pro": "superstatic --host 0.0.0.0 --port 8080 --config superstatic.json"
+
+  ```   
+  Make sure to install rimraf as well.   
 
 ### Installing React
   npm install --save react react-dom axios lodash prop-types react-redux redux redux-form react-render-html redux-thunk
@@ -279,3 +303,6 @@
 
 
 ### Installing redux-form
+
+
+###
