@@ -14,7 +14,7 @@ class PageNew extends Component {
       <div className={className}>
         <label>{field.label}</label>
         <input className='form-control' { ...field.input } />
-        <div className="text-help">
+        <div className="text-danger">
           { touched? error: '' }
         </div>
       </div>
@@ -39,8 +39,8 @@ class PageNew extends Component {
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field label="url" name="url" component={this.renderField} />
           <Field label="title" name="title" component={this.renderField} />
-          <Field label="navLink" name="navLink" component={this.renderField} />
           <Field label="content" name="content" component={this.renderField} />
+          <Field label="navLink" name="navLink" component={this.renderField} />
           <Field label="published" name="published" component={this.renderField} />
 
           <button type="submit" className="btn btn-primary">Submit</button>
@@ -57,8 +57,21 @@ function validate(values) {
   const errors = {};
 
   // Validate the inputs from 'values'
-
-
+  if(!values.url) {
+    errors.url ="Please enter a url.";
+  }
+  if(!values.title) {
+    errors.title ="Please enter a title.";
+  }
+  if(!values.content) {
+    errors.content ="Please enter a content.";
+  }
+  if(!values.navLink) {
+    errors.navLink ="Please confirm whether it is a navLink (true or false).";
+  }
+  if(!values.published) {
+    errors.published ="Please confirmed whether you want to publish it (true or false).";
+  }
 
   return errors;
 }
