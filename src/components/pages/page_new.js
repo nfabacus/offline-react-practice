@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
+import { createPage } from '../../actions';
+// import { fetchNavLinks } from '../../actions';
 
 class PageNew extends Component {
 
@@ -22,7 +24,13 @@ class PageNew extends Component {
   }
 
   onSubmit(values) {
-    console.log('submitted values: ', values);
+    // console.log('submitted values: ', values);
+    // Call createPage action and pass input values to it.
+    // Then, add callback function so that, after a page is created, we can redirect to the pages page.
+    this.props.createPage(values, ()=>{
+      // this.props.fetchNavLinks();
+      this.props.history.push('/pages');
+    });
   }
 
   render(){
@@ -80,5 +88,5 @@ export default reduxForm({
   validate,  //This is the same as--> validate: validate,
   form: 'PageNewForm'  //giving a name to the form here.
 })(
-  connect(null,{})(PageNew)
+  connect(null, { createPage })(PageNew)
 );

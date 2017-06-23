@@ -340,8 +340,32 @@
       ```   
     3. Add Form and Field components in it.   
       Please see the detailed example in page_new.js.   
+      - Make sure to have renderField and onSubmit functions.   
     4. Add Form Validation.   
       Create validate function. Pass values in it, and add validation logics in the validate function.  See the example in page_new.js   
+    5. Create createPage action to post input values to the backend server.   
+      1) First connect to redux this action which we will create later.  This will make this action available in props.   
+      ```
+      connect(null, { createPage })(PageNew)   
+      ```   
+      2) Call this action in onSubmit function and pass input values to it.   
+      ```
+      onSubmit(values) {
+        // console.log('submitted values: ', values);
+        // Call createPage action and pass input values to it.
+        // Then, add callback function so that, after a page is created, we can redirect to the pages page.
+
+        this.props.createPage(values, ()=>{
+          this.props.history.push('/pages');
+        });
+      }   
+      ```
+      3) Now create the actual createPage action in index.js in the actions folder.   
+
+      /// My ToDo comments:
+      /// add explanation on this.props.history.push above.
+      /// Think of how to update navlinks when a new page is created.
+
 
 
 ###

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { FETCH_PAGES, FETCH_PAGE } from '../actions/types';
+import { FETCH_PAGES, FETCH_PAGE, CREATE_PAGE } from '../actions/types';
 
 export default function(state={}, action) { //Receive previous state.  Otherwise, set the default state to an empty object.  Also, receive an action.
   switch (action.type) {
@@ -32,6 +32,9 @@ export default function(state={}, action) { //Receive previous state.  Otherwise
       console.log("newState: ", newState);
       return newState;
       //return _.extend({}, state, { [action.payload.url]: action.payload }); //this also works, using lodash.
+
+    case CREATE_PAGE:
+      return { ...state, [action.payload.url]: action.payload };
 
     default:
       console.log("Action.type is Default!");

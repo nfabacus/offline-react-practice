@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_PAGES, FETCH_PAGE, FETCH_NAVLINKS } from './types';
+import { FETCH_PAGES, FETCH_PAGE, FETCH_NAVLINKS, CREATE_PAGE } from './types';
 
 const ROOT_URL = 'http://localhost:3090';
 
@@ -43,11 +43,26 @@ export function fetchPage(url) {
       dispatch({
         type: FETCH_PAGE,
         payload: data
-      })
+      });
     }, error=>{
       console.log(error);
     });
   }
+}
 
+export function createPage(values, callback) {
+
+  return function(dispatch) {
+    const request = axios.post(`${ROOT_URL}/pages`, values);
+    request.then(({data})=> {
+      dispatch({
+        type: CREATE_PAGE,
+        payload: data
+      });
+      callback();
+    }, error=>{
+      console.log(error);
+    });
+  };  //As soon as the request is is done, whatever you put in as your callback function in  the createPage function will run.
 
 }
