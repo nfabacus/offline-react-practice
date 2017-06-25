@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Field, FieldArray, reduxForm } from 'redux-form';
-import { createPage } from '../../actions';
+import { createPage, fetchNavLinks } from '../../actions';
+import renderField from './page-new/renderField';
 
 // import { fetchNavLinks } from '../../actions';
 
@@ -80,13 +81,42 @@ class PageNew extends Component {
     // Call createPage action and pass input values to it.
     // Then, add callback function so that, after a page is created, we can redirect to the pages page.
     this.props.createPage(values, ()=>{
-      // this.props.fetchNavLinks();
+      //this.props.fetchNavLinks();
       this.props.history.push('/pages');
     });
   }
 
+  renderSubcontents = ({fields}) => {
+    return (<ul>
+      <li>
+        <button type="button" onClick={() => fields.push({})}>Add Subcontent</button>
+      </li>
+      {fields.map((subcontent, subcontentIndex) =>
+        <li key={subcontentIndex}>
+          <button
+            type="button"
+            title="Remove Subcontent"
+            onClick={() => fields.remove(subcontentIndex)}>x</button>
+          <h4>Subcontent #{subcontentIndex + 1}</h4>
+          <Field
+            name={`${subcontent}.title`}
+            type="text"
+            component={renderField}
+            label="Title"
+          />
+          <Field
+            name={`${subcontent}.content`}
+            type="text"
+            component={renderField}
+            label="Content"
+          />
+        </li>
+      )}
+    </ul>);
+  }
+
   render(){
-    const { handleSubmit } = this.props; //handleSubmit is provided by redux form. Pulling it off from this.props.
+    const { array: { push }, handleSubmit, pristine, reset, submitting } = this.props; //handleSubmit is provided by redux form. Pulling it off from this.props.
 
     return (
       <div className="container">
@@ -117,40 +147,7 @@ class PageNew extends Component {
             </div>
           </div>
 
-          <FieldArray name="subcontents" component={subcontents =>
-            <ul>
-              <li>
-                <button type="button" onClick={() => push('subcontents', {})}>Add Subcontent</button>
-              </li>
-              {subcontents.map((subcontent, subcontentIndex) =>
-                <li key={subcontentIndex}>
-                  <button
-                    type="button"
-                    title="Remove Subcontent"
-                    onClick={() => subcontents.remove(subcontentIndex)}/>
-                  <h4>Subcontent #{subcontentIndex + 1}</h4>
-                  <div>
-                    <label>Title</label>
-                    <Field name={`${subcontent}.title`} component={title =>
-                      <div>
-                        <input type="text" {...title} placeholder="Title"/>
-                        {title.touched && titile.error && <span>{title.error}</span>}
-                      </div>
-                    }/>
-                  </div>
-                  <div>
-                    <label>Content</label>
-                    <Field name={`${subcontent}.content`} component={content =>
-                      <div>
-                        <input type="text" {...content} placeholder="Content"/>
-                        {content.touched && content.error && <span>{content.error}</span>}
-                      </div>
-                    }/>
-                  </div>
-                </li>
-              )}
-            </ul>
-          }/>
+          <FieldArray name="subcontents" component={this.renderSubcontents}/>
 
           <Field type="checkbox" label="publish" name="published" component={this.renderField} />
 
@@ -181,6 +178,13 @@ function validate(values) {
     errors.content ="Please enter a content.";
   }
 
+  if(values.subcontents) {
+    errors.subcontents = values.subcontents.map((subcontent, index) => ({
+      title: subcontent.title ? null : `Please enter subcontent[${index + 1}] title`,
+      content: subcontent.content ? null : `Please enter subcontent[${index + 1}] content`
+    }));
+  }
+
   return errors;
 }
 
@@ -188,5 +192,5 @@ export default reduxForm({
   validate,  //This is the same as--> validate: validate,
   form: 'PageNewForm'  //giving a name to the form here.
 })(
-  connect(null, { createPage })(PageNew)
+  connect(null, { createPage, fetchNavLinks })(PageNew)
 );

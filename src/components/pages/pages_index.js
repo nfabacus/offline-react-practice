@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom';
 
 class PagesIndex extends Component {
   componentDidMount() {
-    this.props.fetchPages();
+    if (JSON.stringify(this.props.pages) === '{}') {
+      this.props.fetchPages();  
+    }
   }
 
   renderPages() {
