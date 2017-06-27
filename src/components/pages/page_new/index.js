@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Field, FieldArray, reduxForm } from 'redux-form';
-import { createPage, fetchNavLinks } from '../../actions';
-import renderField from './page-new/renderField';
-
-// import { fetchNavLinks } from '../../actions';
+import { createPage, fetchNavLinks } from '../../../actions';
+import renderSubconField from './renderSubconField';
+import validate from './validate';
 
 class PageNew extends Component {
 
@@ -101,13 +100,13 @@ class PageNew extends Component {
           <Field
             name={`${subcontent}.title`}
             type="text"
-            component={renderField}
+            component={renderSubconField}
             label="Title"
           />
           <Field
             name={`${subcontent}.content`}
             type="text"
-            component={renderField}
+            component={renderSubconField}
             label="Content"
           />
         </li>
@@ -161,31 +160,6 @@ class PageNew extends Component {
       </div>
     );
   }
-}
-
-function validate(values) {
-  // values will be { title: 'whatever you input in the form', categories: 'whatever you input', content: 'whatever you input'}
-  const errors = {};
-
-  // Validate the inputs from 'values'
-  if(!values.url) {
-    errors.url ="Please enter a url.";
-  }
-  if(!values.title) {
-    errors.title ="Please enter a title.";
-  }
-  if(!values.content) {
-    errors.content ="Please enter a content.";
-  }
-
-  if(values.subcontents) {
-    errors.subcontents = values.subcontents.map((subcontent, index) => ({
-      title: subcontent.title ? null : `Please enter subcontent[${index + 1}] title`,
-      content: subcontent.content ? null : `Please enter subcontent[${index + 1}] content`
-    }));
-  }
-
-  return errors;
 }
 
 export default reduxForm({

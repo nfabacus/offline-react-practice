@@ -27,7 +27,7 @@ class Home extends Component {
         <p>Above uses a background image in <b>style</b>.</p>
         <br/>
 
-        <div className="d-inline-block">
+        <div className="d-inline-block mb-3">
           <p>
             This uses an <b>Image Tag</b> in react component:
           </p>

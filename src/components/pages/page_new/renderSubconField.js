@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function renderField ({ input, label, type, meta: { touched, error } }) {
+export default function renderSubconField ({ input, label, type, meta: { touched, error } }) {
   return (
     <div>
       <label>{label}</label>

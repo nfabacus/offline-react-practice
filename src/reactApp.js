@@ -15,7 +15,7 @@ import About from './components/about';
 import Contact from './components/contact';
 import PagesIndex from './components/pages/pages_index';
 import PageShow from './components/pages/page_show';
-import PageNew from './components/pages/page_new';
+import PageNew from './components/pages/page_new/index';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 
