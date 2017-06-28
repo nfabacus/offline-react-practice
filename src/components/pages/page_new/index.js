@@ -57,24 +57,6 @@ class PageNew extends Component {
     );
   }
 
-  // renderSubcontents() {
-  //   // console.log("subcontents: ", subcontents);
-  //   //
-  //   // _.map(subcontents, subcontent =>{
-  //   //   console.log("subcontent: ", subcontent);
-  //   const subcontents = [];
-  //   for (let i=0; i < this.state.subconCount; i++) {
-  //     // subcontents = subcontents.concat(<div className='list-group-item' >
-  //     subcontents.push(
-  //       <div className='list-group-item' key={i}>
-  //       subcontent here.
-  //       </div>);
-  //   }
-  //   console.log("ssubcontents: ", subcontents);
-  //   return subcontents;
-  //
-  // }
-
   onSubmit(values) {
     // console.log('submitted values: ', values);
     // Call createPage action and pass input values to it.

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 class PagesIndex extends Component {
   componentDidMount() {
     if (JSON.stringify(this.props.pages) === '{}') {
-      this.props.fetchPages();  
+      this.props.fetchPages();
     }
   }
 
@@ -20,6 +20,7 @@ class PagesIndex extends Component {
           <Link to={`/${page.url}`}>
             Page URL: {page.url}, Title: {page.title}
           </Link>
+          <button className="btn btn-danger">x</button>
         </li>
       );
     });
