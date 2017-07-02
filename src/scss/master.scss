@@ -2,5 +2,7 @@
 @import "custom-theme/custom";
 // Then, import bootstrap scss
 @import "~bootstrap/scss/bootstrap";
+
+@import "~animate.css";
 // Finally import any custom styles.
 @import "custom-theme/master-theme";

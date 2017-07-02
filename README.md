@@ -93,6 +93,13 @@
       ```   
       !IMPORTANT! make sure to have '/build/styles.css' (absolute path) NOT 'build/styles.css' (relative path).  Otherwise, it will throw an error when you use react router (browserRouter) with nested routes (e.g. '/pages/new').   
 
+
+### Installing CSS for Animation
+1. npm install animate.css --save
+2. import it in master.scss
+   ```
+   @import "~animate.css"
+   ```
 ### Process images with webpack
   1) Install image-webpack-loader, file loader and url-loader via npm
      image-webpack-loader: automatically compress images

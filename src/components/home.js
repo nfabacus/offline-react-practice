@@ -32,6 +32,8 @@ class Home extends Component {
             This uses an <b>Image Tag</b> in react component:
           </p>
           <img src={SmallImg}/>
+
+          <div className="animated infinite bounce">Animation</div>
         </div>
 
         <div className="d-inline-block">

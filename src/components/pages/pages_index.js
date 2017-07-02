@@ -17,10 +17,16 @@ class PagesIndex extends Component {
       console.log("page: ", page);
       return (
         <li className="list-group-item" key={page._id}>
-          <Link to={`/${page.url}`}>
-            Page URL: {page.url}, Title: {page.title}
-          </Link>
-          <button className="btn btn-danger">x</button>
+          <div className="col-10">
+            <Link to={`/${page.url}`}>
+              Page URL: {page.url}, Title: {page.title}
+            </Link>
+          </div>
+
+          <div className="col-2 text-right">
+            <button className="btn btn-danger">x</button>
+          </div>
+
         </li>
       );
     });
