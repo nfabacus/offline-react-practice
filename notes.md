@@ -53,3 +53,36 @@ function updateUserInfo() {
     // need to re-fetch user info
     // call fetchUserInfo action: fetchUserInfo()
 }
+
+
+//How to work with scope without binding
+handleChange = e => {
+let newSearches = this.props.searches.slice().filter(item => {
+   return   item.descr.search(e.target.value) !== -1
+});
+
+  this.setState({filteredSearches: newSearches})
+}
+
+render() {
+  // const handleChange = e => {
+  // let newSearches = this.props.searches.slice().filter(item => {
+  //    return   item.descr.search(e.target.value) !== -1
+  //   })
+  //
+  //   this.setState({filteredSearches: newSearches})
+  // }
+
+
+// Local state does not update by itself unlike props.
+so, use componentWillReceiveProps if you want to manipulate the data received from props.
+When component receive props, then set them to state in componentWillReceiveProps as below:
+
+componentWillReceiveProps(nextProps) {
+  console.log("nextProps: ", nextProps)
+  if(nextProps.searches !== this.props.searches) {
+    this.setState({
+      filteredSearches: nextProps.searches
+    })
+  }
+}

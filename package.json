@@ -7,6 +7,7 @@
     "//": "rimraf folder name will remove the folder",
     "clean": "rimraf build",
     "build": "npm run clean && webpack",
+    "test": "jest",
     "serve:dev": "webpack-dev-server --progress --colors",
     "serve:pro": "superstatic --host 0.0.0.0 --port 8080 --config superstatic.json"
   },
@@ -23,6 +24,7 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
     "image-webpack-loader": "^3.3.1",
+    "jest": "^21.2.1",
     "node-sass": "^4.5.3",
     "rimraf": "^2.6.1",
     "sass-loader": "^6.0.5",
