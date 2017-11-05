@@ -375,4 +375,8 @@
 
 
 
-###
+###  Tests
+First install jest
+```
+npm install --save-dev jest
+```
