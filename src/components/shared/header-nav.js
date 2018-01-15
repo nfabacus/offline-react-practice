@@ -23,11 +23,11 @@ class HeaderNav extends Component {
       isOpen: !this.state.isOpen
     });
   }
-  // console.log("State in HeaderNav: ", state);
+
   renderNavItem() {
-    console.log("this.props.navlinks in Nav: ", this.props.navlinks);
+
     return _.map(this.props.navlinks, navlink=>{
-      console.log("navlink in Nav: ", navlink);
+
       return (
         <NavItem key={navlink._id}>
           <Link className="nav-link" to={`/${navlink.url}`}>{navlink.title}</Link>
@@ -44,7 +44,7 @@ class HeaderNav extends Component {
           <NavbarToggler right onClick={this.toggle} />
           <Link className="navbar-brand" to="/">Brand</Link>
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+            <Nav className="ml-auto bg-white" navbar>
               <NavItem>
                 <Link className="nav-link" to="/about">About</Link>
               </NavItem>
@@ -64,7 +64,6 @@ class HeaderNav extends Component {
 };
 
 function mapStateToProps(state) {
-  console.log("State in nav:", state);
   return { navlinks: state.navlinks }
 }
 

@@ -9,6 +9,14 @@ WebFont.load({
   }
 });
 
-// import "bootstrap/dist/js/bootstrap.min";   This is no longer necessary as we are now going to use reactstrap library.
 import "./scss/master.scss";
 import "./reactApp";
+
+
+if('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('/sw.js')
+    .then(()=>{
+      console.log('Service Worker registered!')
+    })
+}

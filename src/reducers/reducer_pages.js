@@ -4,9 +4,6 @@ import { FETCH_PAGES, FETCH_PAGE, CREATE_PAGE } from '../actions/types';
 export default function(state={}, action) { //Receive previous state.  Otherwise, set the default state to an empty object.  Also, receive an action.
   switch (action.type) {
     case FETCH_PAGES:
-      console.log("Action.type is FETCH_PAGES!");
-      console.log("State: ", state);
-      console.log("action.payload in reducer_pages: ", action.payload);
       return _.mapKeys(action.payload, 'url'); //receives an array in this case, so change it to object by url using lodash mapKeys.
       // example:
       // const pages = [
@@ -37,8 +34,6 @@ export default function(state={}, action) { //Receive previous state.  Otherwise
       return { ...state, [action.payload.url]: action.payload };
 
     default:
-      console.log("Action.type is Default!");
-      console.log("state:", state);
       return state;
     }
 
