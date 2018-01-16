@@ -9,7 +9,7 @@
     "build": "npm run clean && webpack",
     "test": "jest",
     "serve:dev": "webpack-dev-server --progress --colors",
-    "serve:pro": "superstatic --host 0.0.0.0 --port 8080 --config superstatic.json"
+    "serve:pro": "superstatic --port 8080 --config superstatic.json"
   },
   "author": "Nobuyuki Fujioka",
   "license": "ISC",

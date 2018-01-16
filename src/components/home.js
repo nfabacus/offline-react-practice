@@ -22,6 +22,7 @@ class Home extends Component {
 
         <div className="bigImage jumbotron">
           <h1 className="text-center">Home page</h1>
+          <h2 className="text-center">Hello World!</h2>
         </div>
         <p>Above uses a background image in <b>style</b>.</p>
         <br/>

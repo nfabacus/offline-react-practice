@@ -1,5 +1,8 @@
 # Assemblying a web app boilerplate from scratch using webpack, react, redux, and bootstrap 4 sass.
 
+## Offline Practice
+- Currently adding service worker for offline implementation practice.
+
 ### Setup webpack
 1. Install webpack as npm dev pendency.
     npm install webpack --save-dev
