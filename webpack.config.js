@@ -1,5 +1,7 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+OfflinePlugin = require('offline-plugin')
+
 // const webpack = require('webpack');  //need to import here to use for webpack.ProvidePlugin at the bottom of this file.
 
 const config = {
@@ -53,6 +55,32 @@ const config = {
     //   Tether: "tether",
     //   "window.Tether": "tether"
     // }),
+    new OfflinePlugin({
+      publicPath: '/',
+      caches: {
+        main: [
+          'styles.css',
+          'bundle.js',
+        ],
+        additional: [
+          ':externals:'
+        ],
+        optional: [
+          ':rest:'
+        ]
+      },
+      externals: [
+        '/'
+      ],
+      ServiceWorker: {
+        navigateFallbackURL: '/'
+      },
+      AppCache: {
+        FALLBACK: {
+          '/': '/offline-page.html'
+        }
+      }
+    })
   ],
   devServer: {
     historyApiFallback: true

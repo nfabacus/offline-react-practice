@@ -9,17 +9,9 @@ WebFont.load({
   }
 });
 
+import { install } from 'offline-plugin/runtime'
+
 import "./scss/master.scss";
 import "./reactApp";
 
-
-if('serviceWorker' in navigator) {
-  navigator.serviceWorker
-    .register('/sw.js')
-    .then(()=>{
-      console.log('Service Worker registered!');
-    })
-    .catch(function(err){
-      console.log(err);
-    })
-}
+install()
