@@ -3,37 +3,37 @@
   "short_name": "ReactOffline",
   "icons": [
     {
-      "src": "icons/Android/android-36.png",
+      "src": "icons/Android/Icon-36.png",
       "type": "image/png",
       "size": "36x36"
     },
     {
-      "src": "icons/Android/android-48.png",
+      "src": "icons/Android/Icon-48.png",
       "type": "image/png",
       "size": "48x48"
     },
     {
-      "src": "icons/Android/android-72.png",
+      "src": "icons/Android/Icon-72.png",
       "type": "image/png",
       "size": "72x72"
     },
     {
-      "src": "icons/Android/android-96.png",
+      "src": "icons/Android/Icon-96.png",
       "type": "image/png",
       "size": "96x96"
     },
     {
-      "src": "icons/Android/android-144.png",
+      "src": "icons/Android/Icon-144.png",
       "type": "image/png",
       "size": "144x144"
     },
     {
-      "src": "icons/Android/android-192.png",
+      "src": "icons/Android/Icon-192.png",
       "type": "image/png",
       "size": "192x192"
     },
     {
-      "src": "icons/Android/android-512.png",
+      "src": "icons/Android/Icon-512.png",
       "type": "image/png",
       "size": "512x512"
     }
