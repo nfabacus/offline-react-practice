@@ -383,3 +383,9 @@ First install jest
 ```
 npm install --save-dev jest
 ```
+
+### Deploy to Heroku
+git add and commit and then,
+```
+git push heroku `git subtree split --prefix build master`:master --force
+```
