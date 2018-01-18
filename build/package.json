@@ -7,7 +7,7 @@
     "//": "rimraf folder name will remove the folder",
     "clean": "rimraf build",
     "copy-files": "copyfiles manifest.json package.json Procfile Server.js sw.js webpack.config.js build",
-    "build": "npm run clean && webpack",
+    "build": "npm run clean && npm run copy-files && webpack",
     "test": "jest",
     "serve:dev": "webpack-dev-server --progress --colors",
     "serve:pro": "node server.js"
