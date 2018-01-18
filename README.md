@@ -385,7 +385,16 @@ npm install --save-dev jest
 ```
 
 ### Deploy to Heroku
-git add and commit and then,
+At the root, git add and commit and then,
+
+```
+git subtree push --prefix build heroku master
+```
+or
 ```
 git push heroku `git subtree split --prefix build master`:master --force
+
 ```
+
+Try at the below
+https://offline-react-practice.herokuapp.com/
