@@ -6,7 +6,8 @@
   "scripts": {
     "//": "rimraf folder name will remove the folder",
     "clean": "rimraf build",
-    "build": "npm run clean && webpack",
+    "copy-files": "copyfiles manifest.json package.json Procfile Server.js sw.js webpack.config.js build",
+    "build": "npm run clean && npm run copy-files && webpack",
     "test": "jest",
     "serve:dev": "webpack-dev-server --progress --colors",
     "serve:pro": "node server.js"
@@ -23,6 +24,7 @@
     "babel-preset-env": "^1.5.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
+    "copyfiles": "^1.2.0",
     "css-loader": "^0.28.3",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
