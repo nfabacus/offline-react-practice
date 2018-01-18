@@ -9,7 +9,10 @@
     "build": "npm run clean && webpack",
     "test": "jest",
     "serve:dev": "webpack-dev-server --progress --colors",
-    "serve:pro": "superstatic --port 8080 --config superstatic.json"
+    "serve:pro": "node server.js"
+  },
+  "engines": {
+    "node": "6.11.3"
   },
   "author": "Nobuyuki Fujioka",
   "license": "ISC",
@@ -40,6 +43,7 @@
     "bootstrap": "^4.0.0-alpha.6",
     "enzyme": "3.0.0",
     "enzyme-adapter-react-16": "1.0.0",
+    "express": "^4.16.2",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
     "raf": "3.3.2",
