@@ -9779,7 +9779,7 @@ body {
 }
 
 .bigImage {
-  background-image: url(/build/1355f140dc35505f567969fc6ed2fd2b.jpg);
+  background-image: url(/1355f140dc35505f567969fc6ed2fd2b.jpg);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -9791,6 +9791,11 @@ body {
 
 .green {
   background-color: green;
+}
+
+.nav-item {
+  margin: 10px;
+  text-align: center;
 }
 
 /*# sourceMappingURL=styles.css.map*/
