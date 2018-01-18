@@ -29,7 +29,7 @@ class HeaderNav extends Component {
     return _.map(this.props.navlinks, navlink=>{
 
       return (
-        <NavItem key={navlink._id}>
+        <NavItem className="nav-item" key={navlink._id}>
           <Link className="nav-link" to={`/${navlink.url}`}>{navlink.title}</Link>
         </NavItem>
       );
